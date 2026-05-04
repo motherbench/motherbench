@@ -38,8 +38,11 @@ const year = new Date().getFullYear();
   .disclaimer-link a:hover { opacity: 0.7; }
   .copyright { font-family: var(--font-mono); font-size: 0.7rem; color: var(--ash); letter-spacing: var(--tracking-wide); text-transform: uppercase; max-width: var(--max-read); margin: 0 auto; }
 
-  /* Mobile — hashtags stack, then domains stack. Single column for both. */
-  @media (max-width: 480px) {
+  /* Tablet & mobile — hashtags stack, then domains stack. Single column for both.
+     Breakpoint at 768px because four hashtags at desktop font-size need ~613px
+     of inner room before they wrap; below that, single-column reads cleaner
+     than mid-state 2-up rows. */
+  @media (max-width: 768px) {
     .hashtags, .urls {
       flex-direction: column;
       gap: var(--space-2);

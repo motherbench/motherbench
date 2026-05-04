@@ -81,9 +81,9 @@ const isActive = (p: string) => path === p || path === p + '/';
     margin: 0;
     padding: 0;
     display: flex;
-    gap: var(--space-6);
+    gap: var(--space-4);
     justify-content: center;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
   }
   .nav a {
     font-family: var(--font-mono);
@@ -104,16 +104,19 @@ const isActive = (p: string) => path === p || path === p + '/';
     border-bottom-color: var(--ink);
   }
 
-  /* Mobile — keep all three items on one row, no wrap. */
-  @media (max-width: 480px) {
+  /* Narrow viewport — tighten padding, gap, and slightly reduce font.
+     `flex-wrap: nowrap` on .nav above guarantees items stay on one row
+     at every width; this rule just gives them room. */
+  @media (max-width: 600px) {
     nav { padding: var(--space-3); }
-    .nav {
-      gap: var(--space-2);
-      flex-wrap: nowrap;
-    }
-    .nav a {
-      font-size: 0.8125rem;
-      /* tracking stays var(--tracking-wide) — brand-locked */
-    }
+    .nav { gap: var(--space-3); }
+    .nav a { font-size: 0.8125rem; }
+  }
+
+  /* Very narrow phones — final tightening. Tracking stays brand-locked. */
+  @media (max-width: 380px) {
+    nav { padding: var(--space-2); }
+    .nav { gap: var(--space-2); }
+    .nav a { font-size: 0.75rem; }
   }
 </style>
