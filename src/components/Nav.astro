@@ -103,4 +103,17 @@ const isActive = (p: string) => path === p || path === p + '/';
   .nav a.active {
     border-bottom-color: var(--ink);
   }
+
+  /* Mobile — keep all three items on one row, no wrap. */
+  @media (max-width: 480px) {
+    nav { padding: var(--space-3); }
+    .nav {
+      gap: var(--space-2);
+      flex-wrap: nowrap;
+    }
+    .nav a {
+      font-size: 0.8125rem;
+      /* tracking stays var(--tracking-wide) — brand-locked */
+    }
+  }
 </style>

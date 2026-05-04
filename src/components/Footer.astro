@@ -37,4 +37,13 @@ const year = new Date().getFullYear();
   .disclaimer-link a { color: var(--shakti); text-decoration: underline; text-underline-offset: 2px; font-weight: 500; }
   .disclaimer-link a:hover { opacity: 0.7; }
   .copyright { font-family: var(--font-mono); font-size: 0.7rem; color: var(--ash); letter-spacing: var(--tracking-wide); text-transform: uppercase; max-width: var(--max-read); margin: 0 auto; }
+
+  /* Mobile — hashtags stack, then domains stack. Single column for both. */
+  @media (max-width: 480px) {
+    .hashtags, .urls {
+      flex-direction: column;
+      gap: var(--space-2);
+    }
+    .urls { margin-bottom: var(--space-6); }
+  }
 </style>
