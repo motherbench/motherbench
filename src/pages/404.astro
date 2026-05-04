@@ -1,0 +1,18 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout title="Not found · Mother Bench" description="This page does not exist." noindex={true}>
+  <section class="notfound">
+    <h1>404</h1>
+    <p class="lede">This page is not on the bench.</p>
+    <p><a href="/">Return to where mothers sit.</a></p>
+  </section>
+</BaseLayout>
+
+<style>
+  .notfound { text-align: center; padding: var(--space-16) var(--space-6); max-width: var(--max-read); margin: 0 auto; }
+  .notfound h1 { font-family: var(--font-mono); font-size: clamp(4rem, 12vw, 8rem); font-weight: 600; color: var(--shakti); margin: 0 0 var(--space-3); letter-spacing: var(--tracking-wide); }
+  .lede { font-family: var(--font-sans); font-size: clamp(1.125rem, 2vw, 1.5rem); color: var(--ink); margin: 0 0 var(--space-6); font-style: italic; }
+  .notfound a { font-family: var(--font-mono); font-size: 0.875rem; text-transform: uppercase; letter-spacing: var(--tracking-wide); color: var(--ink); text-decoration: none; border-bottom: 2px solid var(--ink); padding-bottom: var(--space-1); }
+  .notfound a:hover { color: var(--shakti); border-bottom-color: var(--shakti); }
+</style>

@@ -1,0 +1,68 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout title="Themis · Mother Bench" description="The mother-of-law. Past and present guardians. Women warriors of the law of life.">
+  <section class="page-hero">
+    <img src="/images/hero-themis.png" alt="A seated woman in flowing robes on a wooden bench, holding a vertical sword between her feet, blade pointing down." class="hero-img" />
+  </section>
+
+  <article class="prose">
+    <header class="page-header">
+      <h1 class="title-name">Themis &mdash;</h1>
+      <p class="title-secondary">past and present guardians.</p>
+      <p class="eyebrow">Behind every man, the law of life. Behind every law, the Mother.</p>
+    </header>
+
+    <section>
+      <h2>Invocation</h2>
+      <p>Before there were courts, there was the law of life.</p>
+      <p>She is the <strong>mother-of-law</strong> — older than every institution that claims her name. Her domain is <em>that-which-is-laid-down-by-divine-ordinance</em> — the order beneath order, the ground on which every legitimate verdict has ever been rendered. Hesiod calls her daughter of Gaia and Ouranos. Aeschylus calls her <em>Themis-Gaia</em>, fusing her with the Earth herself. Homer's kings and judges were not lawgivers but <em>themistopóloi</em> — tenders of Themis, servants of an order they did not invent and could not rewrite.</p>
+      <p>Then her staff was taken by men who broke it. The blindfold was tied on. The scales were weighted. The sword turned to face the women who came asking for her.</p>
+      <p class="eyebrow">Honourable people honour the law.</p>
+    </section>
+
+    <section>
+      <h2>She has many names</h2>
+      <p>She does not belong to one civilisation. The same principle surfaces, slain or subordinated, in tradition after tradition.</p>
+      <ul class="lineage">
+        <li><strong>Themis</strong> · Hellenic · Titaness; mother of Eunomia, Dikē, Eirēnē and the Moirai.</li>
+        <li><strong>Tiamat</strong> · Mesopotamian · Primordial salt-water; cosmic mother slain in the <em>Enuma Elish</em>.</li>
+        <li><strong>Tī-Amma(t)</strong> · Tamil substrate · Fire-mother reading of the cognate; pre-Marduk layer.</li>
+        <li><strong>Maʿat</strong> · Kemetic · Truth, justice, cosmic balance; weighed against the heart.</li>
+        <li><strong>Aditi</strong> · Vedic · Boundlessness; mother of the Ādityas; the cosmic mother whose sons are the laws.</li>
+        <li><strong>Inanna / Ishtar</strong> · Sumerian-Akkadian · Queen of heaven; descended and returned.</li>
+        <li><strong>Hekate</strong> · pre-Hellenic · Triple-formed; keeper of thresholds.</li>
+        <li><strong>Pachamama</strong> · Andean · Earth-mother; rights-bearing entity in Ecuador's 2008 Constitution.</li>
+        <li><strong>Mātṛkā</strong> · Vedic-Tantric · The Mothers; cosmological-protective principles.</li>
+      </ul>
+      <p>One principle in many languages.</p>
+      <p class="callout-soft"><em>Mum. Ma. Amma. Mama. Mother.</em><br />Our human life-giver. Torch-bearer.</p>
+    </section>
+
+    <section>
+      <h2>She comes in many forms</h2>
+      <p class="phase-note">— under construction —</p>
+    </section>
+  </article>
+</BaseLayout>
+
+<style>
+  .page-hero { padding: var(--space-12) var(--space-6) var(--space-4); text-align: center; max-width: var(--max-hero); margin: 0 auto; }
+  .hero-img { width: 100%; max-width: 400px; height: auto; }
+  .prose { max-width: var(--max-read); margin: 0 auto; padding: var(--space-4) var(--space-6) var(--space-12); }
+  .page-header { margin-bottom: var(--space-6); }
+
+  /* Themis title — left-aligned primary, centered secondary */
+  .page-header h1.title-name { text-align: left; margin: 0; }
+  .page-header .title-secondary { text-align: center; }
+
+  section { margin-bottom: var(--space-12); }
+  section p { font-size: 1.125rem; line-height: 1.7; }
+
+  /* Scholarly em words like "themistopóloi" stay serif italic */
+  section em { font-family: var(--font-serif); font-style: italic; }
+
+  .lineage { list-style: none; padding: 0; margin: var(--space-3) 0; }
+  .lineage li { font-size: 1rem; padding: var(--space-2) 0; border-bottom: 1px solid color-mix(in srgb, var(--ink) 8%, transparent); max-width: none; }
+  .lineage strong { font-weight: 600; }
+</style>

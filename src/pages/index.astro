@@ -1,0 +1,67 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import VideoModal from '../components/VideoModal.astro';
+---
+<BaseLayout title="Mother Bench — Where mothers gather." description="International gathering of mothers. The convocation under pressure.">
+  <section class="hero">
+    <img src="/images/hero-home.png" alt="Six women in traditional dress seated together on a wooden bench. The central figure holds a vertical sword, blade pointing down to the ground." class="hero-img" />
+    <h1>Where mothers gather.</h1>
+    <p class="lede">It's about time.</p>
+  </section>
+
+  <section class="prose">
+    <h2>What this is</h2>
+    <p>Mother Bench is an international gathering of mothers, grandmothers, aunts, sisters, and daughters who have decided that the women of the world are going to start talking to each other again, properly, the way they used to.</p>
+    <p>We are not a court. We are not a council. We are not a movement-with-a-manifesto.</p>
+    <p>We are the bench in the village — the long wooden seat where the older women sit in the afternoon and decide, between themselves, what the truth of the matter is. Sometimes the matter is the price of beans. Sometimes the matter is whose son is in trouble. Sometimes the matter is the law of life itself. The bench is wide enough for all of it.</p>
+  </section>
+
+  <section class="watch-section">
+    <p class="eyebrow">Watch.</p>
+    <VideoModal videoId="pwWd9uKKbmE" thumb="/images/video-thumb.png" />
+  </section>
+
+  <section class="prose">
+    <h2>The bench is wide</h2>
+    <p>Across cultures and across centuries, the same seat has held the same conversation: the <em>lavochka</em> outside the Russian village house, the <em>pīṭha</em> on the verandah of the Indian household, the bench under the African neem tree, the kitchen-table tribunal where the day's accounts are settled, the porch in every grandmother's evening, the fire in every mother's tent.</p>
+    <p>Different wood, different weather. Same bench. We are pulling our benches together.</p>
+  </section>
+
+  <section class="prose">
+    <h2>Regions</h2>
+    <p class="phase-note">— gathering by region · the alliance grows from where mothers already are —</p>
+    <ul class="regions">
+      <li><strong>Pacific &amp; Oceania</strong></li>
+      <li><strong>Asia</strong></li>
+      <li><strong>Europe</strong></li>
+      <li><strong>Africa</strong></li>
+      <li><strong>The Americas</strong></li>
+      <li><strong>The Middle East</strong></li>
+    </ul>
+    <p>When a region holds enough partners and Respectful Elders to convene a regional bench, it does. Listing is criteria-gated. Five standards apply. Joining the alliance is committing to the standards.</p>
+  </section>
+
+  <section class="prose">
+    <h2>Sit with us</h2>
+    <p>Tell us where to find you when we go into the sync-rhythm. No stress on newsletters, fundraising. Just word when the bench is calling. Regular online intensives.</p>
+    <p class="phase-note">— signup form coming shortly —</p>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero { padding: var(--space-12) var(--space-6) var(--space-8); text-align: center; max-width: var(--max-hero); margin: 0 auto; }
+  .hero-img { width: 100%; max-width: 600px; height: auto; margin-bottom: var(--space-6); }
+
+  /* MotherBench H1 — centered (over the hero banner image), uses global sizing */
+  .hero h1 { text-align: center; margin: 0 0 var(--space-3); }
+
+  .prose { max-width: var(--max-read); margin: var(--space-12) auto; padding: 0 var(--space-6); }
+  .prose p { font-size: 1.125rem; line-height: 1.7; }
+
+  .regions { list-style: none; padding: 0; margin: var(--space-4) 0 var(--space-6); display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: var(--space-2) var(--space-4); }
+  .regions li { font-size: 1rem; padding: var(--space-2) 0; border-bottom: 1px solid color-mix(in srgb, var(--ink) 8%, transparent); max-width: none; }
+  .regions strong { font-weight: 500; }
+
+  .watch-section { max-width: var(--max-hero); margin: var(--space-16) auto var(--space-12); padding: 0 var(--space-6); text-align: center; }
+  .watch-section .eyebrow { margin-bottom: var(--space-6); }
+</style>

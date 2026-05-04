@@ -1,0 +1,106 @@
+---
+const path = Astro.url.pathname;
+const isActive = (p: string) => path === p || path === p + '/';
+---
+<nav id="site-nav" aria-label="Primary">
+  <ul class="nav">
+    <li><a href="/" class:list={[{ active: isActive('/') }]}>Mother Bench</a></li>
+    <li><a href="/themis" class:list={[{ active: isActive('/themis') }]}>Themis</a></li>
+    <li><a href="/herplace" class:list={[{ active: isActive('/herplace') }]}>Her Place</a></li>
+  </ul>
+</nav>
+<div class="nav-spacer" aria-hidden="true"></div>
+
+<script>
+  // Facebook-style nav: hide on scroll-down, show on scroll-up.
+  // Always visible at the very top of the page.
+  const nav = document.getElementById('site-nav');
+  if (nav) {
+    let lastY = window.scrollY;
+    let ticking = false;
+    const THRESHOLD = 8;
+
+    const update = () => {
+      const currentY = window.scrollY;
+      const diff = currentY - lastY;
+
+      if (Math.abs(diff) < THRESHOLD) {
+        ticking = false;
+        return;
+      }
+
+      if (currentY < 80) {
+        nav.classList.remove('nav-hidden');
+      } else if (diff > 0) {
+        nav.classList.add('nav-hidden');
+      } else {
+        nav.classList.remove('nav-hidden');
+      }
+
+      lastY = currentY;
+      ticking = false;
+    };
+
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        window.requestAnimationFrame(update);
+        ticking = true;
+      }
+    }, { passive: true });
+  }
+</script>
+
+<style>
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    padding: var(--space-3) var(--space-6);
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(12px) saturate(140%);
+    -webkit-backdrop-filter: blur(12px) saturate(140%);
+    border-bottom: 1px solid color-mix(in srgb, var(--ink) 12%, transparent);
+    transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
+  }
+  nav.nav-hidden {
+    transform: translateY(-100%);
+  }
+  /* Spacer reserves the same vertical room the fixed nav takes,
+     so the first hero section doesn't sit under the nav. */
+  .nav-spacer {
+    height: 56px;
+  }
+  @media (min-width: 768px) {
+    .nav-spacer { height: 60px; }
+  }
+  .nav {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: var(--space-6);
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .nav a {
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wide);
+    color: var(--ink);
+    text-decoration: none;
+    padding: var(--space-1) 0;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.15s;
+  }
+  .nav a:hover {
+    border-bottom-color: var(--shakti);
+    opacity: 1;
+  }
+  .nav a.active {
+    border-bottom-color: var(--ink);
+  }
+</style>

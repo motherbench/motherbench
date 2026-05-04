@@ -1,0 +1,94 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout title="Her Place · Mother Bench" description="Australian unifying hub for activists against domestic family violence and coercive control.">
+  <section class="page-hero">
+    <img src="/images/hero-herplace.svg" alt="Mother Bench seal: a five-petal lotus with the letters M B above, in classical serif lettering, all in black on white." class="hero-img" />
+  </section>
+
+  <article class="prose">
+    <header class="page-header">
+      <h1>Her Place.</h1>
+      <p class="eyebrow">Know YOUR place, in Australia.</p>
+    </header>
+
+    <section class="opening">
+      <p>She has been told her place is in the home, in silence, behind closed doors, in the witness box wiped out and erased before her hand reached the pen, in the family report that calls her <em>high-conflict</em> the day she names her abuser, in the housing waitlist, in the legal-aid queue, in the contempt hearing for telling the truth, in the parking lot of the courthouse with her children's overnight bag, in the women's refuge with no permanent address.</p>
+      <p>This is where she comes home. Fully.</p>
+      <p class="declaration">
+        <strong>Never to be exiled again.</strong><br />
+        <strong>Believed.</strong><br />
+        <strong>Honoured.</strong><br />
+        <strong>Heard.</strong>
+      </p>
+    </section>
+
+    <section>
+      <h2>What is happening here</h2>
+      <p class="eyebrow">Networking locally for the optimal outcomes.</p>
+      <p class="phase-note">— statistics under verification · all figures will be sourced to ABS, AIHW, ALRC, ANROWS, or Coroners' findings before publication —</p>
+    </section>
+
+    <section>
+      <h2>What we are building</h2>
+      <p>Like a frog spa-ing in slowly boiling water, Australia's family institutions, without ill-will, have deteriorated beyond acceptable. Intimate Partner Violence and Coercive Control are routinely justified, and the women who name what is happening to them are routinely re-cast as the problem.</p>
+      <p>Her Place gathers a Decree of conceptual reform — eleven seed-ideas, in early thinking, around how Australia's family-law and family-violence systems might be re-architected:</p>
+      <ol class="bills">
+        <li><strong>Family Court Reform</strong> · re-architecting jurisdiction so welfare-first matters return to the Children's Court and equity matters return to Supreme/District Courts.</li>
+        <li><strong>Judicial Accountability</strong> · codifying the established common-law principle that inferior court judges lose immunity when acting without or in excess of jurisdiction.</li>
+        <li><strong>Family Violence Crisis Jurisdiction</strong> · a specialist investigatory branch where civil-court adjudication of parenting and property is stayed until DFV is properly resolved.</li>
+        <li><strong>Equity-First Sequencing</strong> · no interim parenting order until financial protection orders ensure independent housing, income, and equivalent legal funding. <em>No child shall be a bargaining chip.</em></li>
+        <li><strong>Open Court (Family Proceedings) Reform</strong> · rethinking s121 of the Family Law Act, with default to open justice and de-identification of children.</li>
+        <li><strong>Police and Child Protection Accountability</strong> · statutory consequences for officers who alter, suppress, or omit witness statements in DFV matters.</li>
+        <li><strong>Victim Services Funding Equity</strong> · published comparative figures of victim funding versus other adversarial funding streams.</li>
+        <li><strong>Priority Housing for Mothers and Children</strong> · statutory priority, federally funded.</li>
+        <li><strong>Child Support Enforcement Reform</strong> · non-payment as criminal offence; financial violence and theft treated as such.</li>
+        <li><strong>Family Reports Diagnostic Discipline</strong> · evidentiary standards on diagnostic framings such as "high-conflict" and "alienating parent."</li>
+        <li><strong>Jury Sovereignty Restoration</strong> · drawing on Bushell's Case and Magna Carta cl. 39, restoring common-law juries in parenting and divorce.</li>
+      </ol>
+      <p class="phase-note">— concepts under exploration · for research and public discussion —</p>
+      <p class="eyebrow">Give voice to the vulnerable and oppressed.</p>
+    </section>
+
+    <section>
+      <h2>Discipline of this page</h2>
+      <p>Her Place speaks of <em>roles, patterns, and statistics</em>. Every figure is sourced. The roar is rigorous, not hysterical.</p>
+      <p>We are pro-coherence. The Children's Court works because it kept welfare-first. The Supreme and District Courts work because they kept equity. The Family Court fails because it dropped welfare-first into adversarial property litigation and called the mixture <em>equity</em>. Send each kind of work to the court built for it.</p>
+    </section>
+  </article>
+</BaseLayout>
+
+<style>
+  .page-hero { padding: var(--space-12) var(--space-6) var(--space-4); text-align: center; max-width: var(--max-hero); margin: 0 auto; }
+  .hero-img { width: 100%; max-width: 300px; height: auto; }
+  .prose { max-width: var(--max-read); margin: 0 auto; padding: var(--space-4) var(--space-6) var(--space-12); }
+  .page-header { margin-bottom: var(--space-6); }
+
+  /* Her Place H1 — left-aligned, default global sizing/weight */
+  .page-header h1 { text-align: left; margin: 0; }
+
+  section { margin-bottom: var(--space-12); }
+  section p { font-size: 1.125rem; line-height: 1.7; }
+  section em { font-style: italic; }
+  .opening p:first-child { font-size: 1.125rem; line-height: 1.7; }
+
+  /* Bills — concept register: bold anchor name in ink, descriptor in ash */
+  .bills { padding-left: var(--space-3); list-style: decimal; }
+  .bills li {
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1.7;
+    padding: var(--space-2) 0;
+    color: var(--ash);
+    max-width: none;
+  }
+  .bills li::marker { color: var(--ash); }
+  .bills strong {
+    color: var(--ink);
+    font-weight: 600;
+  }
+  .bills em {
+    color: var(--ash);
+    font-style: italic;
+  }
+</style>

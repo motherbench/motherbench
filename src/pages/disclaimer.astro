@@ -1,0 +1,139 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout title="Disclaimer · Mother Bench" description="Mother Bench is a research and publishing community. Not legal, medical, financial, or counselling advice." noindex={false}>
+  <article class="disclaimer-page">
+    <header class="page-header">
+      <h1>Disclaimer.</h1>
+      <p class="subtitle">Read carefully.</p>
+    </header>
+
+    <section class="block">
+      <p>
+        NONE OF THE REPRESENTATIVES OF MOTHER BENCH, ITS OWNERS, OFFICERS, DIRECTORS, EMPLOYEES, SUBSIDIARIES, AFFILIATES, LICENSORS, SERVICE PROVIDERS, CONTENT PROVIDERS, AND AGENTS <span class="muted">(ALL COLLECTIVELY HEREINAFTER REFERRED TO AS <strong>"MOTHER BENCH"</strong>)</span> ARE LICENSED LEGAL OR MEDICAL PROFESSIONALS, AND <strong class="accent">NOTHING CONTAINED HEREIN IS INTENDED TO BE OR TO BE CONSTRUED AS LEGAL, MEDICAL, FINANCIAL, COUNSELLING, OR EDUCATIONAL ADVICE.</strong>
+      </p>
+    </section>
+
+    <section class="block">
+      <p>
+        YOUR USE OF THE INFORMATION CONTAINED HEREIN IS <strong class="accent">AT YOUR OWN RISK.</strong>
+      </p>
+      <p>
+        THE CONTENT IS PROVIDED <em>"AS IS"</em> AND WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED. MOTHER BENCH DISCLAIMS ALL WARRANTIES, INCLUDING, BUT NOT LIMITED TO, ANY IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE, OR NON-INFRINGEMENT.
+      </p>
+      <p>
+        MOTHER BENCH DOES NOT PROMISE OR GUARANTEE ANY OUTCOME, INCOME, OR PARTICULAR RESULT FROM YOUR USE OF THE INFORMATION CONTAINED HEREIN.
+      </p>
+    </section>
+
+    <section class="block">
+      <p>
+        ANYONE WHO REPRESENTS MOTHER BENCH WILL <strong class="accent">NOT BE LIABLE</strong> FOR ANY INCIDENTAL, DIRECT, INDIRECT, PUNITIVE, ACTUAL, CONSEQUENTIAL, SPECIAL, EXEMPLARY, OR OTHER DAMAGES — INCLUDING, BUT NOT LIMITED TO, LOSS OF REVENUE OR INCOME, PAIN AND SUFFERING, EMOTIONAL DISTRESS, OR SIMILAR DAMAGES — EVEN IF MOTHER BENCH HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
+      </p>
+      <p>
+        IN NO EVENT WILL THE COLLECTIVE LIABILITY OF MOTHER BENCH TO ANY PARTY <span class="muted">(REGARDLESS OF THE FORM OF ACTION, WHETHER IN CONTRACT, TORT, OR OTHERWISE)</span> EXCEED THE GREATER OF <strong class="accent">$100 AUD</strong> OR THE AMOUNT YOU HAVE PAID TO MOTHER BENCH FOR THE INFORMATION, PRODUCT OR SERVICE OUT OF WHICH LIABILITY AROSE.
+      </p>
+    </section>
+
+    <section class="block">
+      <p>
+        UNDER NO CIRCUMSTANCES WILL ANYONE WHO REPRESENTS MOTHER BENCH AT ANY TIME BE LIABLE FOR ANY LOSS OR DAMAGE CAUSED BY <strong class="accent">YOUR RELIANCE</strong> ON THE INFORMATION CONTAINED HEREIN.
+      </p>
+      <p>
+        IT IS YOUR RESPONSIBILITY TO EVALUATE THE ACCURACY, COMPLETENESS, OR USEFULNESS OF ANY INFORMATION, OPINION, ADVICE, OR OTHER CONTENT CONTAINED HEREIN.
+      </p>
+      <p>
+        PLEASE SEEK THE ADVICE OF QUALIFIED PROFESSIONALS, AS APPROPRIATE, REGARDING THE EVALUATION OF ANY SPECIFIC INFORMATION, OPINION, ADVICE, OR OTHER CONTENT.
+      </p>
+    </section>
+
+    <section class="block">
+      <h2>Purpose</h2>
+      <p class="lower">
+        Mother Bench is a research and publishing community operating in service of public interest, journalism, and education. All content is published under the protections of <strong>Defamation Act 2005 (Cth) ss 30 and 31</strong> — qualified privilege, honest opinion, and fair comment on matters of public interest.
+      </p>
+      <p class="lower">
+        Where Australian family-law proceedings are referenced, <strong>s121 of the Family Law Act 1975 is honoured until repealed.</strong> Mother Bench identifies no party, child, or witness to live family-law proceedings. All material refers to roles, patterns, statistics, and published judgments only.
+      </p>
+      <p class="lower">
+        Where errors are identified, corrections are issued openly with public diff. Retraction policy applies.
+      </p>
+    </section>
+
+    <section class="block">
+      <h2>Without prejudice</h2>
+      <p class="lower">
+        All content on this site, and all communications referencing it, are made <strong>without prejudice and with full reservation of rights.</strong> No publication, statement, or communication shall be construed as a waiver of any right, claim, or defence available at law or in equity.
+      </p>
+    </section>
+
+    <p class="closing">
+      <em>By using this site you acknowledge you have read, understood, and accepted this disclaimer.</em>
+    </p>
+  </article>
+</BaseLayout>
+
+<style>
+  .disclaimer-page { max-width: var(--max-read); margin: 0 auto; padding: var(--space-12) var(--space-6); }
+  .page-header { text-align: center; margin-bottom: var(--space-16); }
+  .page-header h1 { font-family: var(--font-sans); font-weight: 500; font-size: clamp(3rem, 7vw, 5rem); margin: 0 0 var(--space-2); color: var(--ink); }
+  .subtitle { font-family: var(--font-sans); font-style: italic; font-size: clamp(1rem, 2vw, 1.25rem); color: var(--shakti); margin: 0; }
+
+  .block {
+    margin-bottom: var(--space-12);
+    padding: var(--space-6);
+    border-left: 3px solid color-mix(in srgb, var(--ink) 20%, transparent);
+    background: color-mix(in srgb, var(--ink) 2%, transparent);
+  }
+  .block h2 {
+    font-family: var(--font-sans);
+    font-weight: 500;
+    font-size: clamp(1.25rem, 2vw, 1.5rem);
+    margin: 0 0 var(--space-3);
+    color: var(--ink);
+    text-transform: none;
+    letter-spacing: var(--tracking-tight);
+    text-align: left;
+  }
+  .block p {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    line-height: 1.7;
+    color: var(--ink);
+    margin: 0 0 var(--space-3);
+    text-align: justify;
+    text-justify: inter-word;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    hyphens: manual;
+    word-spacing: 0.02em;
+  }
+  .block p:last-child { margin-bottom: 0; }
+
+  /* Lower-case sentence-case paragraphs in the Purpose / Without prejudice sections */
+  .block p.lower {
+    font-family: var(--font-sans);
+    text-transform: none;
+    letter-spacing: 0;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--ink);
+    text-align: justify;
+    text-justify: inter-word;
+    hyphens: auto;
+  }
+
+  .block strong { font-weight: 600; }
+  .block strong.accent { color: var(--shakti); font-weight: 600; }
+  .block .muted { color: var(--ash); font-weight: 400; }
+  .block em { font-style: italic; }
+
+  .closing {
+    text-align: center;
+    font-family: var(--font-serif);
+    font-size: clamp(1rem, 1.5vw, 1.125rem);
+    color: var(--ash);
+    margin: var(--space-12) auto 0;
+    max-width: var(--max-read);
+  }
+</style>

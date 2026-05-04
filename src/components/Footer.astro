@@ -1,0 +1,40 @@
+---
+const hashtags = ['HERPLACE', 'MOTHERBENCH', 'MOTHERSBENCH', 'THEMISAU'];
+const urls = ['HERPLACE.AU', 'MOTHERBENCH.COM', 'MOTHERSBENCH.COM', 'THEMIS.AU'];
+const year = new Date().getFullYear();
+---
+<footer>
+  <div class="hashtags">
+    {hashtags.map(t => <span>#{t}</span>)}
+  </div>
+  <div class="urls">
+    {urls.map(u => <span>{u}</span>)}
+  </div>
+  <p class="project-line">
+    Mother Bench is an independent project of the Alliance, in the public interest of research, analysis and exposure of <strong>domestic and family violence</strong> and <strong>coercive control</strong> epidemics worldwide.
+  </p>
+  <p class="disclaimer">
+    Research and publishing community. Not legal, medical, financial, or counselling advice.
+  </p>
+  <p class="disclaimer-link">
+    <a href="/disclaimer">Read the full disclaimer</a> prior to using this site.
+  </p>
+  <p class="copyright">
+    MOTHER BENCH · {year} © · ALL RIGHTS RESERVED WITHOUT PREJUDICE
+  </p>
+</footer>
+
+<style>
+  footer { padding: var(--space-12) var(--space-6) var(--space-8); border-top: 1px solid color-mix(in srgb, var(--ink) 15%, transparent); margin-top: var(--space-16); text-align: center; }
+  footer p { text-align: center !important; hyphens: manual !important; }
+  .hashtags, .urls { display: flex; flex-wrap: wrap; gap: var(--space-3) var(--space-6); justify-content: center; font-family: var(--font-mono); text-transform: uppercase; letter-spacing: var(--tracking-wide); }
+  .hashtags { color: var(--shakti); font-weight: 500; font-size: clamp(0.875rem, 2vw, 1.125rem); margin-bottom: var(--space-2); }
+  .urls { color: var(--ink); font-size: clamp(0.75rem, 1.5vw, 0.875rem); margin-bottom: var(--space-8); }
+  .project-line { font-family: var(--font-sans); font-size: 0.9rem; color: var(--ink); max-width: 640px; margin: 0 auto var(--space-4); line-height: 1.6; }
+  .project-line strong { font-weight: 600; }
+  .disclaimer { font-family: var(--font-sans); font-size: 0.75rem; color: var(--ash); max-width: var(--max-read); margin: 0 auto var(--space-2); }
+  .disclaimer-link { font-family: var(--font-sans); font-size: 0.8rem; color: var(--ink); max-width: var(--max-read); margin: 0 auto var(--space-6); }
+  .disclaimer-link a { color: var(--shakti); text-decoration: underline; text-underline-offset: 2px; font-weight: 500; }
+  .disclaimer-link a:hover { opacity: 0.7; }
+  .copyright { font-family: var(--font-mono); font-size: 0.7rem; color: var(--ash); letter-spacing: var(--tracking-wide); text-transform: uppercase; max-width: var(--max-read); margin: 0 auto; }
+</style>

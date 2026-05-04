@@ -1,0 +1,221 @@
+---
+// VideoModal — glass-style popup with YouTube embed
+// Click thumbnail → opens dialog. Close via X, Escape, or backdrop click.
+// Iframe inserted/removed on open/close so video stops when dialog closes.
+const { videoId, thumb, title = "Listen" } = Astro.props;
+---
+<div class="video-trigger">
+  <button class="video-button" data-video-id={videoId} aria-label={`Play video: ${title}`}>
+    <span class="thumb-frame">
+      <span class="thumb-inner">
+        <img src={thumb} alt="" class="video-thumb" />
+        <span class="play-icon" aria-hidden="true">
+          <svg viewBox="0 0 80 80" width="72" height="72">
+            <circle cx="40" cy="40" r="38" fill="rgba(40, 40, 40, 0.8)" stroke="rgba(255, 255, 255, 0.6)" stroke-width="1.5"/>
+            <polygon points="32,24 32,56 58,40" fill="#FFFFFF"/>
+          </svg>
+        </span>
+      </span>
+    </span>
+  </button>
+</div>
+
+<dialog class="video-modal" id="video-modal">
+  <button class="close-btn" aria-label="Close video" type="button">
+    <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+      <path d="M6 6 L18 18 M18 6 L6 18" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    </svg>
+  </button>
+  <div class="video-frame-wrapper">
+    <div class="video-frame" id="video-frame"><!-- iframe injected here on open --></div>
+  </div>
+</dialog>
+
+<script>
+  const buttons = document.querySelectorAll<HTMLButtonElement>('.video-button');
+  const modal = document.getElementById('video-modal') as HTMLDialogElement | null;
+  const frame = document.getElementById('video-frame');
+  const closeBtn = modal?.querySelector('.close-btn');
+
+  if (modal && frame && closeBtn) {
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const id = btn.dataset.videoId;
+        if (!id) return;
+        frame.innerHTML = `<iframe
+          width="100%"
+          height="100%"
+          src="https://www.youtube.com/embed/${id}?autoplay=1&rel=0&playsinline=1&modestbranding=1"
+          title="Mother Bench video"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen></iframe>`;
+        modal.showModal();
+      });
+    });
+
+    const closeModal = () => {
+      modal.close();
+      frame.innerHTML = '';
+    };
+
+    closeBtn.addEventListener('click', closeModal);
+
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeModal();
+    });
+
+    modal.addEventListener('close', () => {
+      frame.innerHTML = '';
+    });
+  }
+</script>
+
+<style>
+  /* Trigger — TV-style glass frame matching the popup */
+  .video-trigger { display: flex; justify-content: center; padding: var(--space-4); }
+  .video-button {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    display: inline-block;
+    max-width: 480px;
+    width: 100%;
+    transition: transform 0.2s ease;
+  }
+  .video-button:hover { transform: scale(1.02); }
+  .video-button:focus-visible { outline: 3px solid var(--shakti); outline-offset: 6px; border-radius: 18px; }
+
+  /* Glass frame — same treatment as the popup */
+  .thumb-frame {
+    position: relative;
+    display: block;
+    width: 100%;
+    padding: 14px;
+    background: rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(14px) saturate(140%);
+    -webkit-backdrop-filter: blur(14px) saturate(140%);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 18px;
+    box-shadow:
+      inset 0 0 0 1px rgba(255, 255, 255, 0.22),
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.5),
+      0 20px 50px -15px rgba(0, 0, 0, 0.35),
+      0 0 0 1px rgba(255, 255, 255, 0.08);
+  }
+  .thumb-inner {
+    position: relative;
+    display: block;
+    border-radius: 6px;
+    overflow: hidden;
+    background: #000;
+  }
+  .video-thumb {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .play-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    transition: transform 0.2s ease;
+  }
+  .video-button:hover .play-icon { transform: translate(-50%, -50%) scale(1.08); }
+
+  /* Modal — glass effect with thick rounded glass borders */
+  .video-modal {
+    border: none;
+    background: transparent;
+    padding: 0;
+    max-width: 95vw;
+    max-height: 95vh;
+    width: min(1200px, 95vw);
+    margin: auto;
+    overflow: visible;
+    inset: 0;
+  }
+  .video-modal[open] {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .video-modal::backdrop {
+    background: rgba(10, 10, 10, 0.75);
+    backdrop-filter: blur(20px) saturate(140%);
+    -webkit-backdrop-filter: blur(20px) saturate(140%);
+  }
+
+  .video-frame-wrapper {
+    position: relative;
+    width: 100%;
+    padding: 14px;
+    background: rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(14px) saturate(140%);
+    -webkit-backdrop-filter: blur(14px) saturate(140%);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 18px;
+    box-shadow:
+      inset 0 0 0 1px rgba(255, 255, 255, 0.22),
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.5),
+      0 30px 80px -10px rgba(0, 0, 0, 0.6),
+      0 0 0 1px rgba(255, 255, 255, 0.08);
+  }
+
+  .video-frame {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: #000;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  .video-frame iframe {
+    position: absolute;
+    inset: 0;
+    width: 100% !important;
+    height: 100% !important;
+    border: 0;
+    display: block;
+  }
+
+  /* Close button */
+  .close-btn {
+    position: absolute;
+    top: -18px;
+    right: -18px;
+    width: 44px;
+    height: 44px;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    background: rgba(10, 10, 10, 0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    color: #FFFFFF;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    transition: transform 0.2s ease, background 0.2s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  }
+  .close-btn:hover {
+    transform: scale(1.1);
+    background: var(--shakti);
+  }
+  .close-btn:focus-visible {
+    outline: 2px solid var(--shakti);
+    outline-offset: 2px;
+  }
+
+  @media (max-width: 600px) {
+    .thumb-frame { padding: 10px; border-radius: 14px; }
+    .video-frame-wrapper { padding: 8px; border-radius: 12px; }
+    .close-btn { top: -16px; right: -8px; width: 36px; height: 36px; }
+  }
+</style>

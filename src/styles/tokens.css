@@ -1,0 +1,39 @@
+/*
+  TOKENS — Mother Bench
+  Shakti palette + IBM Plex stack + minimal rhythm system.
+  Three colours. Two type families. No fourth colour. No gradients. No shadows.
+*/
+
+:root {
+  /* ─── Palette ─────────────────────────────────── */
+  --bg:       #FFFFFF;
+  --ink:      #0A0A0A;
+  --shakti:   #B71C1C;
+  --ash:      #6B6B6B;
+  --paper:    #F8F5F0;
+
+  /* ─── Type ────────────────────────────────────── */
+  --font-mono:  'IBM Plex Mono', ui-monospace, 'Cascadia Mono', 'Source Code Pro', monospace;
+  --font-sans:  'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-serif: 'IBM Plex Serif', Georgia, 'Times New Roman', serif;
+
+  /* ─── Tracking ────────────────────────────────── */
+  --tracking-tight:  -0.01em;
+  --tracking-normal: 0;
+  --tracking-wide:   0.18em;   /* matches Canva 29 */
+  --tracking-extra:  0.25em;
+
+  /* ─── Rhythm (8px baseline) ───────────────────── */
+  --space-1:  8px;
+  --space-2:  16px;
+  --space-3:  24px;
+  --space-4:  32px;
+  --space-6:  48px;
+  --space-8:  64px;
+  --space-12: 96px;
+  --space-16: 128px;
+
+  /* ─── Containers ──────────────────────────────── */
+  --max-read: 720px;
+  --max-hero: 1200px;
+}
